@@ -1,0 +1,61 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="./carousel.css">
+    </head>
+<body>
+    <div>
+        <img src="images/1.jpg" alt="" title="" class="img" width="200" height="150"/>
+        <img src="images/2.jpg" alt="" title="" class="img" width="200" height="150"/>
+        <img src="images/3.jpg" alt="" title="" class="img" width="200" height="150"/>
+        <img src="images/4.jpg" alt="" title="" class="img" width="200" height="150"/>
+        <img src="images/5.jpg" alt="" title="" class="img" width="200" height="150"/>
+    </div>
+    <button onclick="plusSlide(-1)">Prev</button>
+    <div class="carousel-dot">
+        <button onclick="currentSlide(1)" class="slide">1</button>
+        <button onclick="currentSlide(2)" class="slide">2</button>
+        <button onclick="currentSlide(3)" class="slide">3</button>
+        <button onclick="currentSlide(4)" class="slide">4</button>
+        <button onclick="currentSlide(5)" class="slide">5</button>
+    </div>
+    <button onclick="plusSlide(+1)">Next</button>
+
+   
+
+    <script type="text/javascript">
+        var currentIndex = 1;
+
+        function showSlide(n) {
+            var allSlides = document.getElementsByClassName("img");
+            var  colorSlide = document.getElementsByClassName("slide");
+            console.log(colorSlide);
+            if(n > allSlides.length){n= 1; currentIndex=1;}
+            if(n < 1) {n = allSlides.length; currentIndex= allSlides.length;}
+            for(i= 0; i < allSlides.length; i++){
+                allSlides[i].style.display="none";
+            }
+            allSlides[n-1].style.display = "block";
+            colorSlide[n-1].style.background = "yellow";
+
+
+        }
+
+        showSlide(currentIndex);
+
+
+        function plusSlide(n){
+            showSlide(currentIndex = currentIndex + n);
+        }
+
+
+
+        // function for showing the currentslide 
+
+        function currentSlide(m){
+            showSlide(currentIndex = m);
+        }
+
+
+    </script>
+</body>
+</html>

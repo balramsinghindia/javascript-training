@@ -1,0 +1,13 @@
+.carousel-dot{
+    display: inline;
+}
+
+.carousel-dot > button {
+    border-radius: 50%;
+    background: gray;
+    transition: background .5s;
+}
+
+.carousel-dot > button:hover{
+    background: lightblue;
+}
