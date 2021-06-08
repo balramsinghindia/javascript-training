@@ -5,27 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script>
-        var curr_slide = 1;
+        var currSlide = 1;
+        showslides(currSlide);
         function showslides(n){
-            var allslides = document.getElementsByClassName("image-container");
-            console.log(allslides);
-            for(var i=0 ; i < allslides.length ; i++){
-                allslides[i].style.display = "none";
+            var allSlides = document.getElementsByClassName("image-container");
+            console.log(allSlides);
+            for(var i=0 ; i < allSlides.length ; i++){
+                allSlides[i].style.display = "none";
             }
-            allslides[n-1].style.display = "block";
+            allSlides[n-1].style.display = "block";
         }
-        showslides(curr_slide);
+        
         function addslide(n){
-            if(curr_slide+n>5){
-                curr_slide = 1;
+            if(currSlide+n>5){
+                currSlide = 1;
             }
-            else if(curr_slide+n<1){
-                curr_slide = 5;
+            else if(currSlide+n<1){
+                currSlide = 5;
             }
             else{
-                curr_slide+=n;
+                currSlide+=n;
             }
-            showslides(curr_slide);
+            showslides(currSlide);
         }
     </script>
     <style>

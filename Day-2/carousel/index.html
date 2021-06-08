@@ -1,0 +1,68 @@
+<html>
+    <head>
+        <style>
+        .dot {
+            cursor: pointer;
+            height: 15px;
+            width: 15px;
+            margin: 0 2px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+          }
+          .active, .dot:hover {
+            background-color: #717171;
+          }
+        </style>
+    </head>
+<body>
+    <div>
+        <img src="images/1.jpg" alt="" title="" class="img" width="200" height="150"/>
+        <img src="images/2.jpg" alt="" title="" class="img" width="200" height="150"/>
+        <img src="images/3.jpg" alt="" title="" class="img" width="200" height="150"/>
+        <img src="images/4.jpg" alt="" title="" class="img" width="200" height="150"/>
+        <img src="images/5.jpg" alt="" title="" class="img" width="200" height="150"/>
+    </div>
+    <div>
+        <span class="dot" onclick="currSlide(1)"></span>
+        <span class="dot" onclick="currSlide(2)"></span>
+        <span class="dot" onclick="currSlide(3)"></span>
+        <span class="dot" onclick="currSlide(4)"></span>
+        <span class="dot" onclick="currSlide(5)"></span>
+    </div>
+    <div>
+        <button onclick="plusSlide(-1)">Prev</button>
+        <button onclick="plusSlide(1)">Next</button>
+    </div>
+    <script type="text/javascript">
+        var currentIndex = 1;
+
+        function showSlide(n) {
+            var allSlides = document.getElementsByClassName("img");
+            var dots = document.getElementsByClassName("dot");
+            if(n > allSlides.length){n= 1; currentIndex=1;}
+            if(n < 1) {n = allSlides.length; currentIndex= allSlides.length;}
+            for(i= 0; i < allSlides.length; i++){
+                allSlides[i].style.display="none";
+            }
+            for(var i =0;i<dots.length;i++){
+                dots[i].className = dots[i].className.replace(" active","");
+            }
+            allSlides[n-1].style.display = "block";
+            dots[n-1].className += " active";
+        }
+
+        showSlide(currentIndex);
+
+        function plusSlide(n){
+            showSlide(currentIndex = currentIndex + n);
+        }
+        function currSlide(n){
+            showSlide(n);
+        }
+
+
+    </script>
+</body>
+</html>
