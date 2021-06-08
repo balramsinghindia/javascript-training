@@ -33,6 +33,7 @@
             if(n < 1) {n = allSlides.length; currentIndex= allSlides.length;}
             for(i= 0; i < allSlides.length; i++){
                 allSlides[i].style.display="none";
+                colorSlide[n-1].style.background = "gray";
             }
             allSlides[n-1].style.display = "block";
             colorSlide[n-1].style.background = "yellow";
