@@ -31,30 +31,36 @@
             console.log(colorSlide);
             if(n > allSlides.length){n= 1; currentIndex=1;}
             if(n < 1) {n = allSlides.length; currentIndex= allSlides.length;}
+            
             for(i= 0; i < allSlides.length; i++){
                 allSlides[i].style.display="none";
-                colorSlide[n-1].style.background = "gray";
+               
             }
             allSlides[n-1].style.display = "block";
             colorSlide[n-1].style.background = "yellow";
 
+            setTimeout(function () {
+                //   let count = 0;
+                //     count = count +1;
+                //  showSlide(count)
+                     plusSlide(+1);
+                 console.log('setTimeout');
+          }, 2000);
 
         }
 
         showSlide(currentIndex);
-
-
         function plusSlide(n){
             showSlide(currentIndex = currentIndex + n);
         }
 
-
-
         // function for showing the currentslide 
-
         function currentSlide(m){
             showSlide(currentIndex = m);
         }
+
+
+
 
 
     </script>
