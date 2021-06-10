@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Building</title>
+    <link rel="stylesheet" href="../templates/style.css">
+</head>
+<body>
+    <form onsubmit="return checkValidation();">
+        <div>
+            <label for="firstname">Firstname</label>
+            <input id="firstname" name="firstname" class="firstname" type="text" placeholder="Firstname" onblur="checkFirstname()">
+            <p class="error-msg error-firstname"></p>
+        </div>
+        <div>
+            <label for="lastname">Lastname</label>
+            <input id="lastname" name="lastname" class="lastname" type="text" placeholder="Lastname" onblur="checkLastname()">
+            <p class="error-msg error-lastname"></p>
+        </div>
+        <div>         
+            <label for="password">Password</label>
+            <input id="password" name="password" class="password" type="password" placeholder="Password" onblur="checkPassword()">
+            <p class="error-msg error-password"></p>
+        </div>
+        <div>
+            <label for="confirm-password">Confirm Password</label>
+            <input id="confirm-password" name="confirm-password" class="confirmPassword" type="password" placeholder="Confirm Password" onblur="checkConfirmPassword()">
+            <p class="error-msg error-confirm-password"></p>
+        </div>
+        <div>
+            <label for="phone-number">Phone Number</label>
+            <input id="phone-number" name="phone-number" class="phone-number" type="tel" placeholder="Phone Number" onblur="checkPhoneNo()">
+            <p class="error-msg error-phone-number"></p>
+        </div>
+        <div>
+            <input id="check-required" type="checkbox" class="checkbox" onblur="isChecked()"> Checkbox
+            <p class="error-msg error-checkbox"></p>
+        </div>
+        <div>
+            <label for="email">Email ID</label>
+            <input id="email" name="email" type="email" placeholder="Email ID">
+            <p class="error-msg error-email"></p>
+        </div>
+        <div>
+            <button type="button" onclick="reset()"> Reset </button>
+            <button type="submit"> Submit </button>
+        </div>
+    </form>
+</body>
+<script type="text/javascript">
+    var errorMsg = {
+        name: {
+            moreThan24: 'Cannot be more than 24 characters',
+            onlyLetters: 'Can contain only letters'
+        },
+        password: {
+            requirement: 'Minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character'            
+        },
+        confirmPassword: {
+            mustMatch: 'Passwords must match'
+        },
+        phoneNumber: {
+            only10Chars: 'Only 10 Characters allowed'
+        },
+        checkbox: {
+            checkMandate: 'Checbox must be mandatory'
+        },
+        email: {
+            mandate: 'Must be mandatory'
+        }
+    }
+    
+    function checkFirstname(){
+        let firstname = document.getElementsByClassName('firstname')[0].value;
+        if(firstname.length < 24 && (/^[a-zA-Z]+$/.test(firstname))){
+            document.getElementsByClassName('error-firstname')[0].innerHTML = '';                
+        }
+        else{ 
+            let message1 = errorMsg.name.moreThan24;
+            let message2 = errorMsg.name.onlyLetters;
+            document.getElementsByClassName('error-firstname')[0].innerHTML = `${message1}, ${message2}`;                
+        }
+    }
+    
+    function checkLastname(){
+        let lastname = document.getElementsByClassName('lastname')[0].value;
+        if((/^[a-zA-Z]+$/.test(lastname))){
+            document.getElementsByClassName('error-lastname')[0].innerHTML = '';                                    
+        }
+        else{
+            let message = errorMsg.name.onlyLetters;
+            document.getElementsByClassName('error-lastname')[0].innerHTML=message;
+        }
+    }
+    
+    function checkPassword(){
+        let password = document.getElementsByClassName('password')[0].value;
+        if((/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/.test(password))){
+            document.getElementsByClassName('error-password')[0].innerHTML='';                     
+        }
+        else{
+            let message = errorMsg.password.requirement;
+            document.getElementsByClassName('error-password')[0].innerHTML=message;                    
+        }
+    }
+    
+    function checkConfirmPassword(){
+        let confirmPassword = document.getElementsByClassName('confirmPassword')[0].value;
+        if(password === confirmPassword){
+            document.getElementsByClassName('error-confirm-password')[0].innerHTML='';                     
+        }
+        else{
+            let message = errorMsg.confirmPassword.mustMatch;
+            document.getElementsByClassName('error-confirm-password')[0].innerHTML=message;                     
+        }
+    }
+    
+    function checkPhoneNo(){
+        let phoneNumber = document.getElementsByClassName('phone-number')[0].value;
+        if(phoneNumber.length <= 10 && phoneNumber.length > 0){
+            document.getElementsByClassName('error-phone-number')[0].innerHTML = '';            
+        }
+        else{
+            let message = errorMsg.phoneNumber.only10Chars;
+            document.getElementsByClassName('error-phone-number')[0].innerHTML = message;
+        }
+    }
+    
+    function isChecked(){
+        let check = document.getElementById('check-required');
+        if(check.checked){
+            document.getElementsByClassName('error-checkbox')[0].innerHTML = '';                    
+        }
+        else{
+            let message = errorMsg.checkbox.checkMandate;
+            document.getElementsByClassName('error-checkbox')[0].innerHTML = message;                    
+        }
+    }
+    
+    function checkEmail(){
+        let email = document.getElementsByClassName('error-email')[0].value;                        
+        if(email === undefined){
+            let message = errorMsg.email.mandate;
+            document.getElementsByClassName('error-email')[0].innerHTML = message;                                         
+        }
+        else{
+            document.getElementsByClassName('error-email')[0].innerHTML = '';
+        }
+    }
+    
+    function checkValidation(){
+        checkFirstname();
+        checkLastname();
+        checkPassword();
+        checkConfirmPassword();
+        checkPhoneNo();
+        isChecked();
+        checkEmail();
+
+        return false;
+    }
+
+    function reset(){
+        document.getElementsByClassName('firstname')[0].innerHTML = '';
+        document.getElementsByClassName('error-firstname')[0].innerHTML = '';
+
+        document.getElementsByClassName('password')[0].innerHTML = '';
+        document.getElementsByClassName('error-password')[0].innerHTML='';
+
+        document.getElementsByClassName('confirmPassword')[0].innerHTML = '';
+        document.getElementsByClassName('error-confirm-password')[0].innerHTML='';                     
+
+        document.getElementsByClassName('phone-number')[0].innerHTML = '';
+        document.getElementsByClassName('error-phone-number')[0].innerHTML = '';            
+
+        document.getElementById('check-required') = '';
+        document.getElementsByClassName('error-checkbox')[0].innerHTML = '';  
+        
+        document.getElementsByClassName('error-email')[0].innerHTML = '';                        
+        document.getElementsByClassName('error-email')[0].innerHTML = '';        
+    }    
+</script>
+</html>
