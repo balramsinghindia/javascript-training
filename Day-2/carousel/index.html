@@ -39,6 +39,7 @@
         var currentIndex = 1;
 
         function showSlide(n) {
+            
             var allSlides = document.getElementsByClassName("img");
             var dots = document.getElementsByClassName("dot");
             if(n > allSlides.length){n= 1; currentIndex=1;}
@@ -51,6 +52,11 @@
             }
             allSlides[n-1].style.display = "block";
             dots[n-1].className += " active";
+            
+            setTimeout(function(){
+                
+                plusSlide(1);
+            },3000);
         }
 
         showSlide(currentIndex);
@@ -61,7 +67,6 @@
         function currSlide(n){
             showSlide(n);
         }
-
 
     </script>
 </body>

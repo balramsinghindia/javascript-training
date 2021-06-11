@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css"/>
+    <title>Document</title>
+</head>
+<body>
+    <form name="myform">
+        <div class="field-container">
+            <label for="firstname">First Name</label>
+            <input name="firstname" id="firstname" type="text" onblur="firstNameValidation()"/>
+            <p class="error-msg error-firstname"></p>
+        </div>
+        <div class="field-container">
+            <label for="lastname">Last Name</label>
+            <input name="lastname" id="lastname" type="text" onblur="lastNameValidation()"/>
+            <p class="error-msg error-lastname"></p>
+        </div>
+        <div class="field-container">
+            <label for="password">Password</label>
+            <input name="password" id="password" type="password" onblur="Password()"/>
+            <p class="error-msg error-password"></p>
+        </div>
+        <div class="field-container">
+            <label for="confirmpassword">Confirm Password</label>
+            <input  name="confirmpassword" id="confirmpassword" type="password" onblur="confirmPassword()"/>
+            <p class="error-msg error-confirmpassword"></p>
+        </div> 
+        <div class="field-container">
+            <label for="phone">Phone</label>
+            <input name="phone" id="phone" type="tel" onblur="Phone()" />
+            <p class="error-msg error-phone"></p>
+        </div>
+        <div class="field-container">
+            <label for="checkbox">Check Box</label>
+            <input name="checkbox" id="checkbox" type="checkbox"/>
+            <p class="error-msg error-checkbox"></p>
+        </div>
+        <div class="field-container">
+            <label for="email">Email Id</label>
+            <input name="email" id="email" type="email" onblur="Email()"/>
+            <p class="error-msg error-email"></p>
+        </div>
+        <div class="field-container">
+            <input name="submit" id="submit" onclick="onSubmit()" type="submit"/>
+            <input name="reset" id="reset" type="reset"/>
+        </div>
+    </form>
+    <script src="./index.js">
+
+    </script>
+</body>
+</html>

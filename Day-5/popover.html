@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .tool-tip{
+            visibility:hidden;
+            position:absolute;
+            background:black;
+            color:white;
+            width:100px;
+            padding:10px;
+            border-radius:10px;
+            z-index:1;
+        }
+        .button-container{
+            position:relative;
+            margin:200px;
+        }
+        .tooltip-left{
+            margin-left: -140px;
+            margin-top: -30px;
+
+        }
+        .tooltip-right{
+            margin-left: 60px;
+            margin-top: -26px;
+        }
+        .tooltip-top{
+            margin-top: -70px;
+            margin-left:-30px;
+        }
+        .tooltip-bottom{
+            margin-top:20px;
+            margin-left:-30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="button-container">
+        <button class="button" direction="bottom" onclick="openTooltip()">Open</button>
+        <p class="tool-tip">This is a tooltip</p>
+    </div>
+    <script>
+        function openTooltip(){
+            var direction = document.getElementsByTagName("button")[0].getAttribute('direction');
+            document.getElementsByClassName('tool-tip')[0].style.visibility = "visible";
+            if(direction == 'right'){
+                document.getElementsByClassName('tool-tip')[0].className = "tool-tip tooltip-right";
+            }
+            if(direction == 'top'){
+                document.getElementsByClassName('tool-tip')[0].className = "tool-tip tooltip-top";
+            }
+            if(direction == 'left'){
+                document.getElementsByClassName('tool-tip')[0].className = "tool-tip tooltip-left";
+                
+            }
+            if(direction == 'bottom'){
+                document.getElementsByClassName('tool-tip')[0].className = "tool-tip tooltip-bottom";
+            }
+        }
+    </script>
+</body>
+</html>
