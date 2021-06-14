@@ -1,4 +1,4 @@
-import carousel from 'library/carousel.js';
+import Carousel from 'library/carousel.js';
 import Modal from 'library/modal.js';
 
 let myCarousel = new Carousel();
