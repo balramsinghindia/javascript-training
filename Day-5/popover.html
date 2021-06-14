@@ -40,27 +40,32 @@
 </head>
 <body>
     <div class="button-container">
-        <button class="button" direction="bottom" onclick="openTooltip()">Open</button>
+        <button class="button" direction="bottom" onclick="tooltip.openTooltip()">Open</button>
         <p class="tool-tip">This is a tooltip</p>
     </div>
     <script>
-        function openTooltip(){
-            var direction = document.getElementsByTagName("button")[0].getAttribute('direction');
-            document.getElementsByClassName('tool-tip')[0].style.visibility = "visible";
-            if(direction == 'right'){
-                document.getElementsByClassName('tool-tip')[0].className = "tool-tip tooltip-right";
+        class ToolTip{
+            constructor() {
             }
-            if(direction == 'top'){
-                document.getElementsByClassName('tool-tip')[0].className = "tool-tip tooltip-top";
-            }
-            if(direction == 'left'){
-                document.getElementsByClassName('tool-tip')[0].className = "tool-tip tooltip-left";
-                
-            }
-            if(direction == 'bottom'){
-                document.getElementsByClassName('tool-tip')[0].className = "tool-tip tooltip-bottom";
+            openTooltip(){
+                let direction = document.getElementsByTagName("button")[0].getAttribute('direction');
+                document.getElementsByClassName('tool-tip')[0].style.visibility = "visible";
+                if(direction == 'right'){
+                    document.getElementsByClassName('tool-tip')[0].className = "tool-tip tooltip-right";
+                }
+                if(direction == 'top'){
+                    document.getElementsByClassName('tool-tip')[0].className = "tool-tip tooltip-top";
+                }
+                if(direction == 'left'){
+                    document.getElementsByClassName('tool-tip')[0].className = "tool-tip tooltip-left";
+                    
+                }
+                if(direction == 'bottom'){
+                    document.getElementsByClassName('tool-tip')[0].className = "tool-tip tooltip-bottom";
+                }
             }
         }
+        var tooltip = new ToolTip();
     </script>
 </body>
 </html>
