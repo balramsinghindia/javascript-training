@@ -14,7 +14,29 @@
     </div>
     <button onclick="myCarousel.plusSlide(-1)" class="prev">Prev</button>
     <button onclick="myCarousel.plusSlide(+1)">Next</button>
+    
+        
+    <a href="#" onclick="myModal.showModal()">  <h3> Open Modal </h3></a>
+    
+    <div class="my-modal hidden">
+        <div class="modal-header">
+            <span class="modal-title">Modal Header</span>
+            <span onclick="myModal.hideModal()"> <button id="close-icon" class="close-icon" type="button"> X </button></span>
+        </div>
+        <hr>
+        <div class="modal-body">
+            <p> Modal body here...</p>
+        </div>
+        <hr>
+        <div class="modal-footer">
+            <button type="button" onclick="myModal.hideModal()"> Close </button>
+            <button type="submit" onclick="myModal.hideModal()" onblur="myModal.routeFocus()"> OK </button>
+        </div>
+    </div>
+        
     <script src="js/home.js"></script>
+        
+        
   
 </body>
 </html>
