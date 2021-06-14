@@ -1,5 +1,7 @@
 import carousel from 'library/carousel.js';
+import Modal from 'library/modal.js';
 
 let myCarousel = new Carousel();
+let myModal = new Modal();
 
 // apply plusSlide() in buttons using javascript
