@@ -8,12 +8,12 @@
     <link rel="stylesheet" href="../templates/style.css">
 </head>
 <body class="body">
-    <a href="#" onclick="showModal()">  <h3> Open Modal </h3></a>
+    <a href="#" onclick="myModal.showModal()">  <h3> Open Modal </h3></a>
     
     <div class="my-modal hidden">
         <div class="modal-header">
             <span class="modal-title">Modal Header</span>
-            <span onclick="hideModal()"> <button id="close-icon" class="close-icon" type="button"> X </button></span>
+            <span onclick="myModal.hideModal()"> <button id="close-icon" class="close-icon" type="button"> X </button></span>
         </div>
         <hr>
         <div class="modal-body">
@@ -21,24 +21,34 @@
         </div>
         <hr>
         <div class="modal-footer">
-            <button type="button" onclick="hideModal()"> Close </button>
-            <button type="submit" onclick="hideModal()" onblur="routeFocus()"> OK </button>
+            <button type="button" onclick="myModal.hideModal()"> Close </button>
+            <button type="submit" onclick="myModal.hideModal()" onblur="myModal.routeFocus()"> OK </button>
         </div>
     </div>
 </body>
 <script type="text/javascript">
-    function showModal(){
-        document.getElementsByClassName('my-modal')[0].classList.remove('hidden');
-        document.getElementsByClassName('body')[0].classList.add('gray-background');
+
+    class Modal {
+        constructor(){
+
+        }
+
+        showModal(){
+            document.getElementsByClassName('my-modal')[0].classList.remove('hidden');
+            document.getElementsByClassName('body')[0].classList.add('gray-background');
+        }
+
+        hideModal(){
+            document.getElementsByClassName('my-modal')[0].classList.add('hidden');
+            document.getElementsByClassName('body')[0].classList.remove('gray-background');
+        }
+
+        routeFocus(){
+            document.getElementById('close-icon').focus();
+        }
     }
-    
-    function hideModal(){
-        document.getElementsByClassName('my-modal')[0].classList.add('hidden');
-        document.getElementsByClassName('body')[0].classList.remove('gray-background');
-    }
-    
-    function routeFocus(){
-        document.getElementById('close-icon').focus();
-    }
+
+    let myModal = new Modal();
+
 </script>
 </html>
