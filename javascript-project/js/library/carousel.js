@@ -1,4 +1,4 @@
-export class Carousel {
+export default class Carousel {
   constructor(name, year) {
     this.name = name;
     this.year = year;
