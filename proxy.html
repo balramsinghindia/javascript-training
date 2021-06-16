@@ -1,0 +1,30 @@
+<html>
+<body>
+<script type="text/javascript">
+const gameSettings = {};
+
+const gameSettingsProxy = new Proxy(gameSettings, {
+    get: (o, property) => {
+        return property in o ? o[property] : "New value";
+    },
+    set: (o, property, value) => {
+        if(property === "difficulty" && !["easy", "medium", "hard"].includes(value.toLowerCase())) {
+            throw new Error("Difficulty is invalid!");
+        }
+        o[property] = value;
+    },
+    has: (o, property) => {
+        if(property === "difficulty") {
+            return false;
+        }
+
+        return property in o;
+    }
+})
+gameSettingsProxy.difficulty = "super easy";
+console.log(gameSettingsProxy.difficulty)
+
+console.log("difficulty" in gameSettingsProxy);
+</script>
+</body>
+</html>
