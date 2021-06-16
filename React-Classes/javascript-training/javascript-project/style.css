@@ -1,0 +1,47 @@
+.slide-indicator {
+	position: absolute;
+	bottom: 140px;
+	padding-left: 250px;
+}
+
+.my-modal {
+	height: 270px;
+	width: 500px;
+	border: 1px solid darkgray;
+	background-color: white;
+	border-radius: 6px;
+	margin: auto;
+}
+
+.modal-header {
+	padding: 15px;
+}
+
+.modal-title {
+	font-size: 18px;
+	font-weight: 600;
+}
+
+.modal-body {
+	min-height: 100px;
+	padding: 15px;
+}
+
+.modal-footer {
+	padding: 15px;
+	text-align: right;
+}
+
+.hidden {
+	display: none;
+}
+
+.close-icon {
+	float: right;
+	border: none;
+	background-color: white;
+}
+
+.gray-background {
+	background-color: gray;
+}

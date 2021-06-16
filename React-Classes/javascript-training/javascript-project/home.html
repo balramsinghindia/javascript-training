@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Export & Import</title>
+</head>
+<body>
+
+  <!-- Carousel -->
+  <div>
+    <img src="./images/1.jpeg" alt="" title="" class="img" width="600" height="450" onmouseover="stopAutoSlide()"/>
+    <img src="./images/2.jpeg" alt="" title="" class="img" width="600" height="450" onmouseover="stopAutoSlide()"/>
+    <img src="./images/3.jpeg" alt="" title="" class="img" width="600" height="450" onmouseover="stopAutoSlide()"/>
+    <img src="./images/4.jpeg" alt="" title="" class="img" width="600" height="450" onmouseover="stopAutoSlide()"/>
+    <img src="./images/5.jpeg" alt="" title="" class="img" width="600" height="450" onmouseover="stopAutoSlide()"/>                
+    <div class="slide-indicator">
+      <span onclick="showImg(1)"><i class="fa fa-circle" style="color: white;"></i></span>&nbsp;&nbsp;
+      <span onclick="showImg(2)"><i class="fa fa-circle" style="color: white;"></i></span>&nbsp;&nbsp;
+      <span onclick="showImg(3)"><i class="fa fa-circle" style="color: white;"></i></span>&nbsp;&nbsp;
+      <span onclick="showImg(4)"><i class="fa fa-circle" style="color: white;"></i></span>&nbsp;&nbsp;
+      <span onclick="showImg(5)"><i class="fa fa-circle" style="color: white;"></i></span>
+    </div>
+  </div>
+  
+  <button onclick="plusSlide(-1)">Prev</button>
+  <button onclick="plusSlide(+1)">Next</button>
+
+  <!-- Modal -->
+  <a href="#" onclick="myModal.showModal()">  <h3> Open Modal </h3></a>
+    
+    <div class="my-modal hidden">
+        <div class="modal-header">
+            <span class="modal-title">Modal Header</span>
+            <span onclick="myModal.hideModal()"> <button id="close-icon" class="close-icon" type="button"> X </button></span>
+        </div>
+        <hr>
+        <div class="modal-body">
+            <p> Modal body here...</p>
+        </div>
+        <hr>
+        <div class="modal-footer">
+            <button type="button" onclick="myModal.hideModal()"> Close </button>
+            <button type="submit" onclick="myModal.hideModal()" onblur="myModal.routeFocus()"> OK </button>
+        </div>
+    </div>
+</body>
+</html>
