@@ -4,11 +4,11 @@
     </head>
 <body>
     <div >
-        <img src="images/1.jpg" alt="" title="" class="img" width="200" height="150"/>
-        <img src="images/2.jpg" alt="" title="" class="img" width="200" height="150"/>
-        <img src="images/3.jpg" alt="" title="" class="img" width="200" height="150"/>
-        <img src="images/4.jpg" alt="" title="" class="img" width="200" height="150"/>
-        <img src="images/5.jpg" alt="" title="" class="img" width="200" height="150"/>
+        <img src="images/1.jpg" alt="" title="" class="img" width="200" height="150"  onmouseover="pauseSlide()" onmouseout="myTimeoutCall()"/>
+        <img src="images/2.jpg" alt="" title="" class="img" width="200" height="150" onmouseover="pauseSlide()" onmouseout="myTimeoutCall()"/>
+        <img src="images/3.jpg" alt="" title="" class="img" width="200" height="150" onmouseover="pauseSlide()" onmouseout="myTimeoutCall()"/>
+        <img src="images/4.jpg" alt="" title="" class="img" width="200" height="150" onmouseover="pauseSlide()" onmouseout="myTimeoutCall()"/>
+        <img src="images/5.jpg" alt="" title="" class="img" width="200" height="150" onmouseover="pauseSlide()" onmouseout="myTimeoutCall()"/>
     </div>
     <button onclick="plusSlide(-1)">Prev</button>
     <div class="carousel-dot">
@@ -24,6 +24,15 @@
 
     <script type="text/javascript">
         var currentIndex = 1;
+
+        var myTimeout;
+
+        function myTimeoutCall(){
+            myTimeout =  setTimeout(function () {
+                    plusSlide(+1);
+                 console.log('setTimeout');
+          }, 2000);
+        }
 
         function showSlide(n) {
             var allSlides = document.getElementsByClassName("img");
@@ -41,10 +50,7 @@
             allSlides[n-1].style.display = "block";
             colorSlide[n-1].style.background = "lime";
 
-            setTimeout(function () {
-                     plusSlide(+1);
-                 console.log('setTimeout');
-          }, 3000);
+            myTimeoutCall();
 
         }
 
@@ -57,6 +63,14 @@
         // function for showing the currentslide 
         function currentSlide(m){
             showSlide(currentIndex = m);
+        }
+
+
+
+        // function to pause autoslide 
+
+        function pauseSlide(){
+        clearTimeout(myTimeout);
         }
 
     </script>
