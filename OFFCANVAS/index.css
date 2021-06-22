@@ -1,7 +1,7 @@
 .canvas{
     /* display: none; */
     /* visibility:hidden; */
-    height: 100%;
+    /* height: 100%; */
     /* width: 0; */
     /* width: 50%; */
     /* margin: 0 auto; */
@@ -20,7 +20,7 @@
 
 
 .canvas-top{
-    height: 100%;
+    /* height: 100%; */
     /* width: 0; */
     /* width: 50%; */
     /* margin: 0 auto; */
@@ -35,7 +35,7 @@
     z-index: 1; 
 }
 .canvas-right{
-    height: 100%;
+    /* height: 100%; */
     /* width: 0; */
     /* width: 50%; */
     /* margin: 0 auto; */
@@ -50,7 +50,7 @@
     z-index: 1; 
 }
 .canvas-bottom{
-    height: 100%;
+    /* height: 100%; */
     /* width: 0; */
     /* width: 50%; */
     /* margin: 0 auto; */
