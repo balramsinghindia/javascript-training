@@ -69,16 +69,20 @@ function validateEmail(){
 
     let getInputValueString=getInputValue.toString();
 
-    if(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(getInputValueString)){
-        console.log('email is validated');
-       
+
+    if(getInputValue.length > 0)
+            {
+            if( !(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(getInputValueString))){
+                console.log('email is validated'); 
+                document.getElementById('err-three').innerHTML="Please Enter a valid Email-address";
+
+            }
     }
 
-    else {
-        console.log('in else section');
-        document.getElementById('err-three').innerHTML="Please Enter a Valid Email-address";
-
-    }
+    else   {
+            console.log('in else section');
+            document.getElementById('err-three').innerHTML="Please Enter an Email-address";
+            }
 }
 
 function validatePhone(){
@@ -86,13 +90,24 @@ function validatePhone(){
     let getInputValue=document.getElementById('phone').value.toString();
     console.log(getInputValue);
 
-    if(/^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$/.test(getInputValue)){
-        console.log('email is validated');
-    }
+    if(getInputValue.length > 0){
 
-    else {
-        document.getElementById('err-four').innerHTML="Enter a Valid Phone Number";
+            // /^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$/
+            if( !(/^\d+$/.test(getInputValue)))
+            {
+                document.getElementById('err-four').innerHTML="Enter a Valid Phone Number";
+                console.log('email is validated');
+            }
+
+            else if (getInputValue.length != 10)
+            {
+                document.getElementById('err-four').innerHTML="Phone Number Must be of 10 characters";
+            }
     }
+    
+    else   {
+            document.getElementById('err-four').innerHTML="Phone Number cannot be Empty";
+            }
 }
 
 function validatePassword(){
@@ -101,6 +116,7 @@ function validatePassword(){
     console.log(getInputValue);
     if((/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/.test(getInputValue))){
         console.log("password-validated");
+        document.getElementById('err-five').innerHTML="";
     }
 
     else {
@@ -122,5 +138,36 @@ function validateConfirmPassword(){
     document.getElementById('err-six').innerHTML="Confirm Password Must be Same as Password";
 
   }
-
 }
+
+
+function allFunction(){
+    validateName();
+    validateNametwo();
+    validateEmail();
+    validatePhone();
+    validatePassword();
+    validateConfirmPassword();   
+}
+
+function validateForm(){
+    let getInputValue = document.forms["landing-page-form"]["checkbox"].checked;
+    console.log(getInputValue);
+    document.getElementById('err-seven').innerHTML="";  
+
+
+    if(getInputValue){
+        allFunction();
+    }
+
+    else {
+      document.getElementById('err-seven').innerHTML="User needs to Agree with Terms & conditons";  
+    }
+    
+}
+
+
+// function resetValue(){
+//     let getAllInputs = document.getElementsByTagName('input').value;
+//     console.log(getAllInputs);
+// }
