@@ -19,12 +19,9 @@
         <button onclick="currentSlide(5)" class="slide">5</button>
     </div>
     <button onclick="plusSlide(+1)">Next</button>
-
-   
-
+    <!-----------------------scripts-------------->
     <script type="text/javascript">
         var currentIndex = 1;
-
         var myTimeout;
 
         function myTimeoutCall(){
@@ -44,31 +41,22 @@
             for(i= 0; i < allSlides.length; i++){
                 allSlides[i].style.display="none";
                 colorSlide[i].style.background = "";
-
-               
             }
             allSlides[n-1].style.display = "block";
             colorSlide[n-1].style.background = "lime";
-
             myTimeoutCall();
-
         }
 
         showSlide(currentIndex);
-
+        // function for showing next on clicking the next button
         function plusSlide(n){
             showSlide(currentIndex = currentIndex + n);
         }
-
         // function for showing the currentslide 
         function currentSlide(m){
             showSlide(currentIndex = m);
         }
-
-
-
         // function to pause autoslide 
-
         function pauseSlide(){
         clearTimeout(myTimeout);
         }
