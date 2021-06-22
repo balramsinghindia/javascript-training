@@ -14,10 +14,12 @@ function validateName(){
     let getInputValue = document.getElementById('firstname').value;
 
     if(getInputValue){
+        document.getElementById('err-one').innerHTML="";
 
          for(let i=0 ; i < getInputValue.length ; i++) {
             if((getInputValue[i]<'A'||getInputValue[i]>'Z') && (getInputValue[i]<'a'||getInputValue[i]>'z')){
                 document.getElementById('err-one').innerHTML="FirstName should contain only characters";
+                document.getElementById('firstname').style.borderBlockEndColor="red";
                 console.log('running-loop');
             }
         }
@@ -55,7 +57,6 @@ function validateNametwo(){
    
     else {
         let getPara = document.getElementById('err-two').innerHTML="First-Name cannot be empty";
-        console.log('input is null');
         console.log(getPara);
     } 
 }
@@ -72,6 +73,7 @@ function validateEmail(){
 
     if(getInputValue.length > 0)
             {
+                document.getElementById('err-three').innerHTML="";
             if( !(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(getInputValueString))){
                 console.log('email is validated'); 
                 document.getElementById('err-three').innerHTML="Please Enter a valid Email-address";
@@ -93,6 +95,7 @@ function validatePhone(){
     if(getInputValue.length > 0){
 
             // /^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$/
+            document.getElementById('err-four').innerHTML="";
             if( !(/^\d+$/.test(getInputValue)))
             {
                 document.getElementById('err-four').innerHTML="Enter a Valid Phone Number";
