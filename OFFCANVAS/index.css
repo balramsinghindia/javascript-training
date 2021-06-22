@@ -5,24 +5,66 @@
     /* width: 0; */
     /* width: 50%; */
     /* margin: 0 auto; */
-    background:aqua;
+    background:aquamarine;
     border-radius: 8px;
     box-shadow: 7px 7px 15px 6px blanchedalmond;
     transition: .5s;
-    color: white;
     transform: translateX(-100%);
 }
-
 .canvas{
     position: fixed;
     top: 0;
-    left: 0;
+    left: 0%;
     z-index: 1;
 }
-/* 
-.show{
-    transform: none;
-} */
+
+
+.canvas-top{
+    height: 100%;
+    /* width: 0; */
+    /* width: 50%; */
+    /* margin: 0 auto; */
+    background:aquamarine;
+    border-radius: 8px;
+    box-shadow: 7px 7px 15px 6px blanchedalmond;
+    transition: .5s;
+    transform: translateY(-100%);
+    position: fixed;
+    top: 0;
+    left: 10%;
+    z-index: 1; 
+}
+.canvas-right{
+    height: 100%;
+    /* width: 0; */
+    /* width: 50%; */
+    /* margin: 0 auto; */
+    background:aquamarine;
+    border-radius: 8px;
+    box-shadow: 7px 7px 15px 6px blanchedalmond;
+    transition: .5s;
+    transform: translateX(100%);
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 1; 
+}
+.canvas-bottom{
+    height: 100%;
+    /* width: 0; */
+    /* width: 50%; */
+    /* margin: 0 auto; */
+    background:aquamarine;
+    border-radius: 8px;
+    box-shadow: 7px 7px 15px 6px blanchedalmond;
+    transition: .5s;
+    transform: translateY(100%);
+    position: fixed;
+    bottom: 0;
+    left: 10%;
+    z-index: 1; 
+}
+
 
 
 .canvas__header{
@@ -51,4 +93,20 @@
 
 .close{
     background-color: transparent;
+    border: none;
+    font-size: 35px;
+}
+
+.open-left{
+    border: none;
+    font-size: 35px;
+    border-radius: 8px;
+    margin: 25px;
+}
+
+.canvas-group{
+    display: flex;
+    justify-content: center;
+    margin: 100px;
+    border: 1px solid aquamarine;
 }

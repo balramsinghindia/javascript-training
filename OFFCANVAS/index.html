@@ -9,7 +9,12 @@
    <script type="text/javascript" src="./index.js"></script>
 </head>  
 <body>
-    <button onclick="openOffCanvas()">open-off-canvas</button>
+    <div class="canvas-group">
+        <button onclick="openOffCanvas()" class="open-left">open-off-canvas-left</button>
+        <button onclick="openOffCanvasTop()" class="open-left">open-off-canvas-top</button>
+        <button onclick="openOffCanvasRight()" class="open-left">open-off-canvas-right</button>
+        <button onclick="openOffCanvasBottom()" class="open-left">open-off-canvas-Bottom</button>
+    </div>
     <!----------canvas division--------------------->
     <main>
         <section>
@@ -18,10 +23,46 @@
                     <h5>Off Canvas</h5>
                     <button class="close" onclick="closeOffCanvas()">&times;</button>
                 </div>
-                <div class="canvas__body">Some text as placeholder. In real life you can have the elements you have chosen. Like, text, images, lists, etc.</div>
+                <div class="canvas__body">
+                   Lorem, ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, sed accusantium! Error quasi enim, deserunt odit, quas molestiae .</div>
                 <div class="canvas__footer">Canvas Footer</div>
             </div>
         </section>
+        <section>
+            <div class="canvas-top" id="canvas-division-two">
+                <div class="canvas__header">
+                    <h5>Off Canvas</h5>
+                    <button class="close" onclick="closeOffCanvasTop()">&times;</button>
+                </div>
+                <div class="canvas__body">
+                   Lorem, ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, sed accusantium! Error quasi enim, deserunt odit, quas molestiae .</div>
+                <div class="canvas__footer">Canvas Footer</div>
+            </div>
+        </section>
+        <section>
+            <div class="canvas-right" id="canvas-division-three">
+                <div class="canvas__header">
+                    <h5>Off Canvas</h5>
+                    <button class="close" onclick="closeOffCanvasRight()">&times;</button>
+                </div>
+                <div class="canvas__body">
+                   Lorem, ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, sed accusantium! Error quasi enim, deserunt odit, quas molestiae .</div>
+                <div class="canvas__footer">Canvas Footer</div>
+            </div>
+        </section>
+        <section>
+            <div class="canvas-bottom" id="canvas-division-four">
+                <div class="canvas__header">
+                    <h5>Off Canvas</h5>
+                    <button class="close" onclick="closeOffCanvasBottom()">&times;</button>
+                </div>
+                <div class="canvas__body">
+                   Lorem, ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, sed accusantium! Error quasi enim, deserunt odit, quas molestiae .</div>
+                <div class="canvas__footer">Canvas Footer</div>
+            </div>
+        </section>
+       
     </main>
 </body>
 </html>
+
