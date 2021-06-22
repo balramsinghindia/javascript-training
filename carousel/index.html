@@ -42,16 +42,14 @@
             colorSlide[n-1].style.background = "lime";
 
             setTimeout(function () {
-                //   let count = 0;
-                //     count = count +1;
-                //  showSlide(count)
                      plusSlide(+1);
                  console.log('setTimeout');
-          }, 2000);
+          }, 3000);
 
         }
 
         showSlide(currentIndex);
+
         function plusSlide(n){
             showSlide(currentIndex = currentIndex + n);
         }
@@ -60,10 +58,6 @@
         function currentSlide(m){
             showSlide(currentIndex = m);
         }
-
-
-
-
 
     </script>
 </body>
