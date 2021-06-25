@@ -49,67 +49,56 @@
 function myDef(){
     const newyork ={
        defineProperty: function(helloObject,helloObjectProperty) {
-                      if(helloObjectProperty == "studentPassedMark"){
+                        if(helloObjectProperty == "studentPassedMark"){
                             console.log("the student is passed with x% in total");
-                      }
+                        }
 
-                      else {
+                        else {
                         console.log("sorry we have a protocol of not display failed marks");
-                      }
-       }
+                        }
+                    }
   };
-
   let thirdProxy = new Proxy({} , newyork); 
   console.log("defineProperty example 3");
   thirdProxy.studentPassedMark=="five";
 }
-
 myDef();
 
-
     // fourth Proxy with get
-
     const targetFour = {};
     const handlerFour = {
         set : function (targetFour,fourthProperty,fourthReceiver){
-                  if(fourthProperty == "age"){
-                      let age = 42;
-                       console.log(age);
-                  }
-                  else {
-                      console.log("no property");
-                  }
+                if(fourthProperty == "age"){
+                    let age = 42;
+                    console.log(age);
+                }
+                else {
+                    console.log("no property");
+                }
     }
 };
-
     var fourthProxy = new Proxy(targetFour,handlerFour);
     console.log("fouth proxy example with set")
     fourthProxy.age=54;
 
     // fivth proxy with get
-
     const targetFive= { posting:"Banking Clerk" , secretPosting:"CBI"};
     const handlerFive = {
-    
         get : function (targetFive , PropertyFive){
-            
               if(PropertyFive == "secretPosting"){
                   let secretPosting = "no secretPosting";
                    return console.error(secretPosting);
               }
-
               else {
                       return console.log(targetFive.posting);
                 //    return console.log(fivthProxy.name); giving call stack size exceeded
               }
       }
   }
-
     var fivthProxy = new Proxy (targetFive , handlerFive);
     console.log("Fivth Proxy example with get");
     fivthProxy.posting;
     fivthProxy.secretPosting;
-
 
     // proxy for getOwnPropertyDescriptor
      const targetSix={
@@ -122,22 +111,23 @@ myDef();
 
     const handlerSix = {
     getOwnPropertyDescriptor : (targetSix , propertySix) => {
-
-                              if(propertySix == "password"){
-                                   return console.log("password cannot be shared");
-                              }
-                        
-                             else {
-                                 return console.log(Object.getOwnPropertyDescriptors(targetSix));
-                             }
-                   
-                      
+    if(propertySix == "password"){
+        return console.log("password cannot be shared");
     }
-  };
-  let proxySix = new Proxy(targetSix,handlerSix);
-  console.log("proxy for getOwnPropertyDescriptor");
-  proxySix.password="hello";  // we need to put equalto beacuse they are triggered by as same as set... trap
 
+    else {
+        return console.log(Object.getOwnPropertyDescriptors(targetSix));
+    }         
+    }
+    };
+    let proxySix = new Proxy(targetSix,handlerSix);
+    console.log("proxy for getOwnPropertyDescriptor");
+    proxySix.password="hello";  // we need to put equalto beacuse they are triggered by as same as set... trap
+
+
+
+
+    
 //   const prakash = Object.getOwnPropertyDescriptors(targetSix);
 //   console.log(prakash);
   
