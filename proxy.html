@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proxy</title>
+</head>
+<body>
+    <script>
+
+// proxy for define property : example 1
+    const mytarget = {}; 
+    const handlerFunc = {
+        defineProperty: function( mytarget , property , receiver) {
+                                if(property == "user"){
+                                     return console.log("yes accepted");
+                                }
+                                return console.log("you can't add a property");
+                                console.log("defineProperty");
+                                return Object.defineProperty(mytarget, property, receiver);
+                          }
+      };
+
+      let proxy = new Proxy( mytarget , handlerFunc);
+      proxy.user= "ashok";
+
+// proxy for define property : example 2
+    const handlers ={
+        defineProperty: function (objectHolder , objectHolderProperty , receiver){
+                     console.log("second try of define property");
+                     if(objectHolderProperty == "b") {
+                         console.log("property accepted");
+                     }
+                     else {
+                          console.log(`property ${receiver} is not accepted`);
+                     }
+                }
+       };
+        var newProxy = new Proxy({} , handlers);
+        newProxy.b=2;
+        newProxy.a=2;
+       
+
+
+            // let lastChapter = {
+      //   getProp : "i am a prop" ,
+      //   // hello : "hello"
+      //   myfunc : function() {
+                           
+      //               return this.firstName + "" + this.lastName; 
+      //                }
+      // };
+
+      // let proxy = new Proxy(lastChapter , {
+      //   apply : (obj , prop) => {  
+
+      //             if ( prop == "getProp") {
+      //                 return console.log("you got the method");
+      //             }
+      //             else {
+      //                 return console.log("there is no method like this");
+      //             }      
+      //   } ,
+
+      //    get : (obj , prop) => {
+      //                if ( prop == "hello")   {
+      //                    return console.info(" i am a prop");
+      //                }
+
+      //                else {
+      //                  return console.info(" i am not a prop");
+      //                }
+      //    }
+      // });
+
+      // // proxy.lastChapter.apply(getProp);
+      // // console.log('at 29th line');
+
+      // const obj2 = {
+      //   firstName : "prakash",
+      //   lastName : "R"
+      // }
+
+      // // proxy.lastChapter.hello;
+
+      // console.log(lastChapter.myfunc.apply(obj2));
+      // console.log(Reflect.apply);
+
+    </script>
+</body>
+</html>
