@@ -9,7 +9,7 @@
 <body>
     <script>
 // ---- <proxyVariable>.<properties> are the trigerres or in otherwords callers of proxies-----------
-    
+
 // proxy for define property : example 1
     // const mytarget = {}; 
     const handler1 = {
@@ -67,11 +67,11 @@ function myDef(){
 myDef();
 
 
-// fourth Proxy with get
+    // fourth Proxy with get
 
-const targetFour = {};
-const handlerFour = {
-    set : function (targetFour,fourthProperty,fourthReceiver){
+    const targetFour = {};
+    const handlerFour = {
+        set : function (targetFour,fourthProperty,fourthReceiver){
                   if(fourthProperty == "age"){
                       let age = 42;
                        console.log(age);
@@ -82,16 +82,16 @@ const handlerFour = {
     }
 };
 
- var fourthProxy = new Proxy(targetFour,handlerFour);
- console.log("fouth proxy example with set")
-  fourthProxy.age=54;
+    var fourthProxy = new Proxy(targetFour,handlerFour);
+    console.log("fouth proxy example with set")
+    fourthProxy.age=54;
 
-  // fivth proxy with get
+    // fivth proxy with get
 
-  const targetFive= { posting:"Banking Clerk" , secretPosting:"CBI"};
-  const handlerFive = {
-   
-      get : function (targetFive , PropertyFive){
+    const targetFive= { posting:"Banking Clerk" , secretPosting:"CBI"};
+    const handlerFive = {
+    
+        get : function (targetFive , PropertyFive){
             
               if(PropertyFive == "secretPosting"){
                   let secretPosting = "no secretPosting";
@@ -105,12 +105,41 @@ const handlerFour = {
       }
   }
 
-  var fivthProxy = new Proxy (targetFive , handlerFive);
-  console.log("Fivth Proxy example with get");
-  fivthProxy.posting;
-  fivthProxy.secretPosting;
+    var fivthProxy = new Proxy (targetFive , handlerFive);
+    console.log("Fivth Proxy example with get");
+    fivthProxy.posting;
+    fivthProxy.secretPosting;
 
 
+    // proxy for getOwnPropertyDescriptor
+     const targetSix={
+         name : "kumar",
+         id : 205,
+         role : "senior software Engineer",
+         expierenceInYears : 10,
+         email : "kumar23@gmail.com"
+     };
+
+    const handlerSix = {
+    getOwnPropertyDescriptor : (targetSix , propertySix) => {
+
+                              if(propertySix == "password"){
+                                   return console.log("password cannot be shared");
+                              }
+                        
+                             else {
+                                 return console.log(Object.getOwnPropertyDescriptors(targetSix));
+                             }
+                   
+                      
+    }
+  };
+  let proxySix = new Proxy(targetSix,handlerSix);
+  console.log("proxy for getOwnPropertyDescriptor");
+  proxySix.password="hello";  // we need to put equalto beacuse they are triggered by as same as set... trap
+
+//   const prakash = Object.getOwnPropertyDescriptors(targetSix);
+//   console.log(prakash);
   
 //   studentPassedMark : "mark" , studentFailedMark : "Status - Reappear"
             // let lastChapter = {
