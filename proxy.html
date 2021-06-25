@@ -10,8 +10,8 @@
     <script>
 
 // proxy for define property : example 1
-    const mytarget = {}; 
-    const handlerFunc = {
+    // const mytarget = {}; 
+    const handler1 = {
         defineProperty: function( mytarget , property , receiver) {
                                 if(property == "user"){
                                      return console.log("yes accepted");
@@ -22,11 +22,12 @@
                           }
       };
 
-      let proxy = new Proxy( mytarget , handlerFunc);
-      proxy.user= "ashok";
+      let firstProxy = new Proxy( {} , handler1);
+      firstProxy.user= "ashok";
 
-// proxy for define property : example 2
-    const handlers ={
+// proxy for defineProperty : example 2
+// assigning target object while call to function
+    const handler2 ={
         defineProperty: function (objectHolder , objectHolderProperty , receiver){
                      console.log("second example of define property");
                      if(objectHolderProperty == "b") {
@@ -37,12 +38,30 @@
                      }
                 }
        };
-        var newProxy = new Proxy({} , handlers);
-        newProxy.b=2;
-        newProxy.a=2;
+        let secondProxy = new Proxy({} , handler2);
+        secondProxy.b=2;
+        secondProxy.a=2;
        
+// proxy for defineProperty : example 3 
+// assignning target object while call to a function 
 
 
+  const newyork ={
+       defineProperty: function(helloObject,helloObjectProperty , receiver3) {
+                      console.log("defineProperty example 3");
+                      if(helloObjectProperty == "studentPassedMark"){
+                            console.log("the student is passed with x% in total");
+                      }
+
+                      else {
+                        console.log("sorry we have a protocol of not display failed marks");
+                      }
+       }
+  };
+
+  let thirdProxy = new Proxy({} ,  newyork); 
+  thirdProxy.studentPassedMark;
+//   studentPassedMark : "mark" , studentFailedMark : "Status - Reappear"
             // let lastChapter = {
       //   getProp : "i am a prop" ,
       //   // hello : "hello"
