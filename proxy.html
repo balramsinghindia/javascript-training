@@ -8,7 +8,8 @@
 </head>
 <body>
     <script>
-
+// ---- <proxyVariable>.<properties> are the trigerres or in otherwords callers of proxies-----------
+    
 // proxy for define property : example 1
     // const mytarget = {}; 
     const handler1 = {
@@ -17,8 +18,8 @@
                                      return console.log("yes accepted");
                                 }
                                 return console.log("you can't add a property");
-                                console.log("defineProperty");
-                                return Object.defineProperty(mytarget, property, receiver);
+                                // console.log("defineProperty");
+                                // return Object.defineProperty(mytarget, property, receiver);
                           }
       };
 
@@ -29,7 +30,6 @@
 // assigning target object while call to function
     const handler2 ={
         defineProperty: function (objectHolder , objectHolderProperty , receiver){
-                     console.log("second example of define property");
                      if(objectHolderProperty == "b") {
                          console.log("property accepted");
                      }
@@ -39,16 +39,16 @@
                 }
        };
         let secondProxy = new Proxy({} , handler2);
+        console.log("second example of define property");
         secondProxy.b=2;
         secondProxy.a=2;
        
 // proxy for defineProperty : example 3 
 // assignning target object while call to a function 
 
-
-  const newyork ={
-       defineProperty: function(helloObject,helloObjectProperty , receiver3) {
-                      console.log("defineProperty example 3");
+function myDef(){
+    const newyork ={
+       defineProperty: function(helloObject,helloObjectProperty) {
                       if(helloObjectProperty == "studentPassedMark"){
                             console.log("the student is passed with x% in total");
                       }
@@ -59,8 +59,59 @@
        }
   };
 
-  let thirdProxy = new Proxy({} ,  newyork); 
-  thirdProxy.studentPassedMark;
+  let thirdProxy = new Proxy({} , newyork); 
+  console.log("defineProperty example 3");
+  thirdProxy.studentPassedMark=="five";
+}
+
+myDef();
+
+
+// fourth Proxy with get
+
+const targetFour = {};
+const handlerFour = {
+    set : function (targetFour,fourthProperty,fourthReceiver){
+                  if(fourthProperty == "age"){
+                      let age = 42;
+                       console.log(age);
+                  }
+                  else {
+                      console.log("no property");
+                  }
+    }
+};
+
+ var fourthProxy = new Proxy(targetFour,handlerFour);
+ console.log("fouth proxy example with set")
+  fourthProxy.age=54;
+
+  // fivth proxy with get
+
+  const targetFive= { posting:"Banking Clerk" , secretPosting:"CBI"};
+  const handlerFive = {
+   
+      get : function (targetFive , PropertyFive){
+            
+              if(PropertyFive == "secretPosting"){
+                  let secretPosting = "no secretPosting";
+                   return console.error(secretPosting);
+              }
+
+              else {
+                      return console.log(targetFive.posting);
+                //    return console.log(fivthProxy.name); giving call stack size exceeded
+              }
+      }
+  }
+
+  var fivthProxy = new Proxy (targetFive , handlerFive);
+  console.log("Fivth Proxy example with get");
+  fivthProxy.posting;
+  fivthProxy.secretPosting;
+
+
+  
 //   studentPassedMark : "mark" , studentFailedMark : "Status - Reappear"
             // let lastChapter = {
       //   getProp : "i am a prop" ,
