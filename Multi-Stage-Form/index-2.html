@@ -9,11 +9,17 @@
         * input {
           display: block;
           margin-block: 1em;
-           }
+        }
         input[type="checkbox"]{
         display: inline !important;
         margin-block: 1em;
- }
+       }
+       .danger{
+        color: red;
+        font-size:small;
+        font-weight: 100;
+        font-family: Arial, Helvetica, sans-serif;
+        }
     </style>
 </head>
 <body>
@@ -22,18 +28,20 @@
         <fieldset>
             <legend>Stage-2</legend>
             <label for="postcode">Post-Code:</label>
-            <input type="number"/>
+            <input type="text" id="postcode" name="postcode" value=""   onblur="validatePostCode()"/>
 
             <label for="email">E-Mail:</label>
             <input type="email" name="email" id="email"  value="" onblur="validateEmail()"/>
             <p id="err-three" class="danger"></p>
 
             <label for="phone">Phone No:</label>
-            <input type="tel"  name="phone" id="phone" value="" />
+            <input type="tel"  name="phone" id="phone" value="" onblur=" validatePhone()"/>
+            <p id="err-four" class="danger"></p>
 
             
             <input type="checkbox" name="chechbox" id="checkbox"/>
             <label for ="checkbox">Agree with Terms &#38; conditions</label>
+            <p id="err-seven" class="danger"></p>
         </fieldset>
 
     </form>
@@ -57,8 +65,6 @@ if(getInputValue.length > 0)
             console.log('email is validated'); 
             document.getElementById('err-three').innerHTML="Please Enter a valid Email-address";
             document.getElementById('email').style.borderColor="red";
-
-
         }
 }
 
@@ -69,6 +75,53 @@ else   {
 
         }
 }
+
+function validatePostCode(){
+   let postcode = document.getElementById('postcode').value;
+
+   if(postcode.length > 0){
+    if(/^[A-Z]{1,2}[0-9R][0-9A-Z]?●[0-9][ABD-HJLNP-UW-Z]{2}$/.test(postcode)){
+}
+   }
+
+   else {
+
+   }
+
+  
+
+}
+
+
+function validatePhone() {
+let phone = document.getElementById('phone').value;
+  
+if( phone.length > 0){
+
+// /^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$/
+document.getElementById('err-four').innerHTML="";
+document.getElementById('phone').style.borderColor="";
+
+if( !(/^\d+$/.test( phone)))
+{
+    document.getElementById('err-four').innerHTML="Enter a Valid Phone Number";
+    document.getElementById('phone').style.borderColor="red";
+    console.log('email is validated');
+}
+
+else if ( phone.length != 10)
+{
+    document.getElementById('err-four').innerHTML="Phone Number Must be of 10 characters";
+    document.getElementById('phone').style.borderColor="red";
+}
+}
+
+else   {
+document.getElementById('err-four').innerHTML="Phone Number cannot be Empty";
+document.getElementById('phone').style.borderColor="red";
+}  
+
+ }
 
     </script>
 </body>
