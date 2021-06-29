@@ -11,12 +11,12 @@
     // snippets - No : 1
 
     var animal = {
-        dog : true }
+    dog : true }
 
-        var rabbits = {
-        jumps : true }
+    var rabbits = {
+    jumps : true }
 
-        rabbits._proto_ = animal;
+    rabbits._proto_ = animal;
 
     // snippet No : 2
 
@@ -39,7 +39,32 @@
 
 // Then, when admin.system tries to read, it’s not in admin, so JavaScript follows the [[Prototype]] reference and finds it in user (look from the bottom up):
 
-           
+// snippet No : 3 
+  
+//The prototype chaining
+
+      let adminDuplicate = {}; 
+      adminDuplicate.__proto__ = admin; // will have admins prop & users prop
+
+// snippets No : 4 
+// New Modern Js syntax for prototypal inheritance : Object.getPrototypeOf/Object.setPrototypeOf     
+    let user = {
+    name : "primaryUser",
+    loginId : 13,
+    system : "mac",
+    softWares: 15,
+    acounts : ['google','yahoo','zomato','uber',],
+    accessories : ['mouse','headphones','speakers','camera']
+    }
+
+    let admin = {
+    name : "secondayUser",
+    loginId : 14
+    }
+
+    //assigning prototype
+    admin.getPrototypeOf = user;  
+    admin.system;    
     </script>
 </body>
 </html>
