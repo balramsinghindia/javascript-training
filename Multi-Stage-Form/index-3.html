@@ -38,6 +38,7 @@
             <input type="number" name="house-number" id="house-number" value="" />
             <label for="country">Country :</label>
             <select id="country"  onclick="listCity()">
+                <option></option>
                 <option value="India">India</option>
                 <option value="Australia">Australia</option>
                 <option value="Uk">UK</option>
@@ -47,69 +48,16 @@
                <!---Place to create dynamic oprions-->
             </select>
           
-            <a id="goBack-three" href="./index-2.html">Previous Page</button>
-            <a href="./index-4.html" id="next-three">Next Page</a>
-
+            <!-- <a id="goBack-three" href="./index-2.html">Previous Page</button>
+            <a href="./index-4.html" id="next-three">Next Page</a> -->
+        <button type="button" onclick="redirectNext()">NextPage</button>
+        <button type="button" onclick="redirectPrev()">PrevPage</button>
         </fieldset>
 
     </form>
-    <script>
+    <script type="text/javascript" src="./index-3.js">
 
-    const country = {
-        India : ['andhra','bihar','Chhattisgarh','Goa','Gujarat','Haryana','Himachal Pradesh','Jharkhand','Karnataka','Kerala'],
-        Australia : ['Ashmore and Cartier Islands','Australian Antarctic Territory','Australian Capital Territory (ACT)','Christmas Island','Cocos (Keeling) Islands','Coral Sea Islands','Heard Island and McDonald Islands','Jervis Bay Territory','Norfolk Island','Northern Territory (NT)'],
-        Uk : ['Bedfordshire','Berkshire','Bristol','Buckinghamshire','Cambridgeshire','Cheshire','City of London','Cornwall','Cumbria']
-    }
-   var Australia = ['Ashmore and Cartier Islands','Australian Antarctic Territory','Australian Capital Territory (ACT)','Christmas Island','Cocos (Keeling) Islands','Coral Sea Islands','Heard Island and McDonald Islands','Jervis Bay Territory','Norfolk Island','Northern Territory (NT)'];
-
-    function listCity(){
-        console.log('Australia is clicked');
-       let country = document.getElementById('country').value;
-
-       if(country == "Australia"){
-        // document.getElementById('city').value = country.Australia;
-        // document.getElementById('Australia').innerHTML=country.Australia;
-         
-        for(let i=0 ; i < 10; i++){
-            console.log(i);
-            let optionValue = Australia[i];
-            let element = document.createElement('option');
-            element.value = optionValue;
-            console.log(element.value);
-            element.innerHTML = Australia[i];
-            let select = document.getElementById('city');
-            select.appendChild(element);
-        }
-       }
-       else{
-           console.info("no city");
-       }
-
-    }
-
-   function validateName(){ 
-    // var regex = new  RegExp("/^([^0-9]*)$/");
-    let getInputValue = document.getElementById('firstname').value;
-    if(getInputValue){
-        document.getElementById('err-one').innerHTML="";
-        document.getElementById('firstname').style.borderColor="";
-
-         for(let i=0 ; i < getInputValue.length ; i++) {
-            if((getInputValue[i]<'A'||getInputValue[i]>'Z') && (getInputValue[i]<'a'||getInputValue[i]>'z')){
-                document.getElementById('err-one').innerHTML="Name should contain only characters";
-                document.getElementById('firstname').style.borderColor="red"; 
-            }
-        }
-        if((getInputValue.length > 24)  ) {
-             document.getElementById('err-one').innerHTML="Name should be within 24 characters only";  
-             document.getElementById('firstname').style.borderColor="red";
-        }
-    }
-    else {
-        let getPara = document.getElementById('err-one').innerHTML="Name cannot be empty";
-        document.getElementById('firstname').style.borderColor="red";
-    } 
-        }
+ 
     </script>
 </body>
 </html>
