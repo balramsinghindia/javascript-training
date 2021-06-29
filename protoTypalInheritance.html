@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ProtoTypal Inheritance</title>
+</head>
+<body>
+    <script>
+    // snippets - No : 1
+
+    var animal = {
+        dog : true }
+
+        var rabbits = {
+        jumps : true }
+
+        rabbits._proto_ = animal;
+
+    // snippet No : 2
+
+    let user = {
+    name : "primaryUser",
+    loginId : 13,
+    system : "mac",
+    softWares: 15,
+    acounts : ['google','yahoo','zomato','uber',],
+    accessories : ['mouse','headphones','speakers','camera']
+    }
+
+    let admin = {
+    name : "secondayUser",
+    loginId : 14
+    }
+    //assigning prototype
+    admin.__proto__ = user; 
+    admin.system  // mac  
+
+// Then, when admin.system tries to read, it’s not in admin, so JavaScript follows the [[Prototype]] reference and finds it in user (look from the bottom up):
+
+           
+    </script>
+</body>
+</html>
