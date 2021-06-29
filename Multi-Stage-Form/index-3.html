@@ -20,18 +20,22 @@
         font-weight: 100;
         font-family: Arial, Helvetica, sans-serif;
         } 
+        .asterisk{
+            color: red;
+        }
     </style>
 </head>
 <body>
     <form name="stage-three">
         <fieldset>
             <legend>Stage-3</legend>
-            <label for="fisrtname">Name:</label>
+            <label for="fisrtname">Name:</label><span class="asterisk">&#42;</span></label>
             <input type="text" name="firstname" id="firstname" value="" onblur="validateName()"/>
             <p id="err-one" class="danger"></p>
-
-            <label for="address">Address:</label>
-            <input type="number" name="house-number" value="" />
+            
+            <h3>Enter Your Address</h3>
+            <label for="house-number">House-number:<span class="asterisk">&#42;</span></label>
+            <input type="number" name="house-number" id="house-number" value="" />
             <label for="country">Country :</label>
             <select id="country"  onclick="listCity()">
                 <option value="India">India</option>
@@ -49,6 +53,8 @@
                 <option value="" id="2"></option>
                 <option value="" id="3"></option>
             </select>
+            <a id="goBack-three" href="./index-2.html">Previous Page</button>
+            <a href="./index-4.html" id="next-three">Next Page</a>
 
         </fieldset>
 

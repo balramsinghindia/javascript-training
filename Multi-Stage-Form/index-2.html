@@ -20,6 +20,9 @@
         font-weight: 100;
         font-family: Arial, Helvetica, sans-serif;
         }
+        .asterisk{
+            color: red;
+        }
     </style>
 </head>
 <body>
@@ -30,7 +33,7 @@
             <label for="postcode">Post-Code:</label>
             <input type="text" id="postcode" name="postcode" value=""   onblur="validatePostCode()"/>
 
-            <label for="email">E-Mail:</label>
+            <label for="email">E-Mail:<span class="asterisk">&#42;</span></label>
             <input type="email" name="email" id="email"  value="" onblur="validateEmail()"/>
             <p id="err-three" class="danger"></p>
 
@@ -40,12 +43,20 @@
 
             
             <input type="checkbox" name="chechbox" id="checkbox"/>
-            <label for ="checkbox">Agree with Terms &#38; conditions</label>
+            <label for ="checkbox">Agree with Terms &#38; conditions</label><span class="asterisk">&#42;</span>
             <p id="err-seven" class="danger"></p>
+            <a id="goBack-two" href="./index-1.html">Previous Page</button>
+            <a href="./index-3.html" id="next-two">Next Page</a>
         </fieldset>
 
     </form>
     <script>
+  function redirectPrev(){
+               location.replace("./index-1.html");
+           }
+//   function redirectNext(){
+//       location.replace("./index-3.html");
+//   }      
         
 function validateEmail(){
 
