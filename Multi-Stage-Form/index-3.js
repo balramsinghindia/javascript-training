@@ -36,6 +36,8 @@ function listCity(){
       if(country != "India"){
         // let cityOptions = document.getElementById('city');
         // cityOptions.options.length = '';
+         let cityOptions = document.getElementById('city');
+        cityOptions.options.style.display = 'none';
     }  
     }
    }
@@ -56,6 +58,8 @@ function listCity(){
     if(country != "Australia"){
         // let cityOptions = document.getElementById('city');
         // cityOptions.options.length = '';
+        let cityOptions = document.getElementById('city');
+        cityOptions.options.style.display = 'none';
       }  
     }
    }
