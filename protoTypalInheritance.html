@@ -48,7 +48,7 @@
 
 // snippets No : 4 
 // New Modern Js syntax for prototypal inheritance : Object.getPrototypeOf/Object.setPrototypeOf     
-    let user = {
+    let userTwo = {
     name : "primaryUser",
     loginId : 13,
     system : "mac",
@@ -57,14 +57,43 @@
     accessories : ['mouse','headphones','speakers','camera']
     }
 
-    let admin = {
+    let adminTwo = {
     name : "secondayUser",
     loginId : 14
     }
 
     //assigning prototype
-    admin.getPrototypeOf = user;  
-    admin.system;    
+    adminTwo.getPrototypeOf = user;  
+    adminTwo.system;   
+
+    // Snippet No : 5  Writing doesn’t use prototype or in other words , we can have the same properties/methods names with different values/functionality.
+
+    /* The prototype is only used for reading properties.
+      Write/delete operations work directly with the object. */ 
+
+      let userThree = {
+          company : "Google",
+          location : "america",
+          name : 'userThree',
+          id : 1 ,
+         entryTime(){
+            return console.info(`Entry time for id ${this.id} of ${this.name} is ${new Date()}`);
+         }
+      };
+
+      let userFour = {
+          name : 'userFour',
+          id : 2,
+          __proto__:userThree 
+      }
+      userFour.entryTime = function() {
+              return console.info(`Entry time for id ${this.id} of ${this.name} is ${new Date()}`);
+          }
+
+      userThree.entryTime();
+      userFour.entryTime();
+
+    // key Note : From now on,  userFour.entryTime(); call finds the method immediately in the object and executes it, without using the prototype:  
     </script>
 </body>
 </html>
