@@ -2,6 +2,38 @@
 // global variables for error
 var isErrorOne;
 var isErrorTwo;
+// function for window reload
+
+
+// function to save responses 
+
+var saveresponse = document.getElementById('storebutton');
+
+var retriveresponse = document.getElementById('retrivebutton');
+
+ function saveresponsefunc(){
+     console.log("save response invoked");
+    let compName = document.getElementById('companyname').value;
+    localStorage.setItem('comp',compName); 
+
+    let Abn = document.getElementById('abn').value;
+    localStorage.setItem('abn',Abn); 
+}
+
+// // saveresponse.addEventListener('click',saveresponsefunc());
+
+function retriveresponsefunc(){
+    let compName = document.getElementById('companyname');
+    compName.value = localStorage.getItem('comp'); 
+
+    let Abn = document.getElementById('abn');
+    Abn.value = localStorage.getItem('abn'); 
+}
+// function responses(){
+// let compName = document.getElementById('companyname').value;
+// localStorage.setItem("comp",compName);
+// compName.value = localStorage.getItem("comp");
+// }
 
 class stageFourValidate {
  
@@ -10,6 +42,8 @@ class stageFourValidate {
     document.getElementById('err-comp').innerHTML="";
     document.getElementById('companyname').style.borderColor="";
 
+    
+    console.log(localStorage.getItem("comp"));
     if(compName.length > 0){
         if( !(/^(?:[A-Za-z]+)(?:[A-Za-z0-9 _]*)$/.test(compName))){
             document.getElementById('err-comp').innerHTML="Company should contain letter, number, spaces";
@@ -48,6 +82,11 @@ if(Abn.length > 0) {
  redirectNext(){
      this.validateCompany();
      this.validateAbn();
+    //  this.saveresponsefunc();
+    //  this.retriveresponsefunc();
+
+
+     
     console.log(isErrorOne);
     console.log(isErrorTwo);
     if((isErrorOne && isErrorTwo) || (document.getElementById('companyname').value && document.getElementById('abn').value )){
@@ -68,6 +107,18 @@ redirectPrev(){
         console.log("cannot redirect");
     }
     }
+
+//      saveresponsefunc(){
+//      console.log("save response invoked");
+//     let compName = document.getElementById('companyname').value;
+//     localStorage.setItem('comp',compName); 
+// }
+
+
+//  retriveresponsefunc(){
+//     let compName = document.getElementById('companyname');
+//     compName.value = localStorage.getItem('comp'); 
+// }
  
 }
 

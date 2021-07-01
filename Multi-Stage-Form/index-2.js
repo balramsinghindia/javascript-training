@@ -9,8 +9,8 @@ function redirectPrev(){
 function validateEmail(){
 
     console.log('email is validated');
-    var getInputValue=document.getElementById('email').value;
-    let getInputValueString=getInputValue.toString();
+    let getInputValue=document.getElementById('email').value;
+    // let getInputValueString=getInputValue.toString();
     
     if(getInputValue.length > 0)
         {
@@ -75,4 +75,25 @@ function validateEmail(){
     
      }
     
-      
+   function saveresponsefunc(){
+       let postcode = document.getElementById('postcode').value;
+       localStorage.setItem('postcode',postcode);
+
+       let email = document.getElementById('email').value;
+       localStorage.setItem('email',email);
+
+       let phone = document.getElementById('phone').value;
+       localStorage.setItem('phone',phone);
+   }  
+   
+   function retriveresponsefunc(){
+       console.log('function invoked');
+    let postcode = document.getElementById('postcode');
+    postcode.value = localStorage.getItem('postcode');
+
+    let email = document.getElementById('email');
+    email.value = localStorage.getItem('email');
+
+    let phone = document.getElementById('phone');
+    phone.value = localStorage.getItem('phone');
+   }

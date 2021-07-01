@@ -35,7 +35,9 @@
             
             <h3>Enter Your Address</h3>
             <label for="house-number">House-number:<span class="asterisk">&#42;</span></label>
-            <input type="number" name="house-number" id="house-number" value="" />
+            <input type="text" name="house-number" id="house-number" value="" onblur="validateHouseNumber()"/>
+            <p id="err-two" class="danger"></p>
+
             <label for="country">Country :</label>
             <select id="country"  onclick="listCity()">
                 <option></option>
@@ -52,6 +54,8 @@
             <a href="./index-4.html" id="next-three">Next Page</a> -->
         <button type="button" onclick="redirectNext()">NextPage</button>
         <button type="button" onclick="redirectPrev()">PrevPage</button>
+        <button type="button" onclick="saveresponsefunc()">Save Responses</button>
+        <button type="button" onclick="retriveresponsefunc()">Retrive Responses</button>
         </fieldset>
 
     </form>
