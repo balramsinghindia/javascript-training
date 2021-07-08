@@ -81,6 +81,7 @@
  }
 
  let myMapObject = new Map();
+ // mapObject.set(key,value);
  myMapObject.set('Maggie','processedFood');
  myMapObject.set('yumme','processedFood');
  myMapObject.set('rice','homeMade');
@@ -96,6 +97,28 @@
    console.log(`The foodType of ${key} is ${value}`);
  });
  
+
+ // snippet below for mapping a conventional object to Map()
+console.log('----------------mapping conventional object---------------------'); 
+let conventionalObject = { maggie : 'Processed Food', yumme : 'Processed Food', rice : 'Home Made', chapathi : 'Home Made'};
+
+let mappedConventionlObject = new Map(Object.entries(conventionalObject));
+
+console.log(mappedConventionlObject.entries());
+
+
+// snippet below for conveting arrays to objects using Object.fromEntries(array);
+
+let ObjFromArray = Object.fromEntries([['name1','kumar-value'],['name2','anand'],['name3','alok'],['name4','vishal'],['name5','vinoy']]);
+console.log(ObjFromArray);
+
+let arrayPrimary = [['name1','kumar-value'],['name2','anand'],['name3','alok'],['name4','vishal'],['name5','vinoy']];
+
+let ObjFromArray2 = Object.fromEntries(arrayPrimary);
+console.log(ObjFromArray2);
+
+
+
     </script>
 </body>
 </html>
