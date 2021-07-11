@@ -25,11 +25,12 @@
 
         // response = {
         //     status : 
-        //     ok : 
+        //     json(){}
+        //     text(){}       
         // }
 
         let url = 'https://api.github.com/repos/javascript-tutorial/en.javascript.info/commits';
-        let response = await fetch(url);  // [options :  { method : 'Post' , body : new FormData(formid)   }]
+        let response = await fetch(url);  // let response = fetch(url , [options]) ;  //  [options :  { method : 'Post' , body : new FormData(formid)   }]
 
         if (response.status == 200) { // if HTTP-status is 200-299
         // get the response body (the method explained below)
