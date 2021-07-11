@@ -19,7 +19,12 @@
     rabbits._proto_ = animal;
 
     // snippet No : 2
+    /// Js engine tries to take it from the primary level if not available , then it searches in the [[prototype]] : __proto__ 
+    /* The prototype is only used for reading properties.
+    Write/delete operations work directly with the object. */ 
 
+    //The prototype chaining
+    // taking from the top level - we have separate snippet for this.
     let user = {
     name : "primaryUser",
     loginId : 13,
@@ -34,7 +39,7 @@
     loginId : 14
     }
     //assigning prototype
-    admin.__proto__ = user; 
+    admin.__proto__ = user;  
     admin.system  // mac  
 
 // Then, when admin.system tries to read, it’s not in admin, so JavaScript follows the [[Prototype]] reference and finds it in user (look from the bottom up):

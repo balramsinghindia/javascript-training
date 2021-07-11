@@ -4,11 +4,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>aync - await</title>
+    <title>async - await</title>
 </head>
 <body>
     <script>
 
+     //async  function that is going to always return a function , that return value is the value of the resolve of that promise  
+     // await - works only with aync keyword  
+     // a replacement for .then.catch
+     // the await returns the result , incase of any error it throws the error , handle it by try catch
     async function mypromise(){
         let promise = new Promise((resolve , reject) => {
             

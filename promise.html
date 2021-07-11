@@ -10,10 +10,10 @@
     <h1>Promise Snippets</h1>
     <script>
 
-/*   1. write a promise statements 
-       
+/*   Promise Chaining  */
+// 1. multi-level  ->  .then().then().then.catch()
+// 2. multiple     ->  promise.then   promise.then      promise.then
 
-       */
 
     function random(){
     let  n = Math.floor(Math.random() * 7);
@@ -36,15 +36,17 @@
     });
     }
     
-    Game().then(function(message) {
+    Game()
+    .then(function(message) {
             console.log(message);
             // return Game();
-    }, function(message){
+        }, function(message){
         console.log(message);
         Game();
      // return Game();
-    }).then(function(message) {
-            console.log(message) },   
+    })
+    .then(function(message) {
+        console.log(message) },   
         function(message){
         console.log(message);
         Game();
