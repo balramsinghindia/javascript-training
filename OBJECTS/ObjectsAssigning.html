@@ -10,6 +10,10 @@
 
     <h3>Objects Copying</h3>
     <script>
+       // way 1 : Object.assign()
+       //way 2 :  Object.create(Object.getPrototypeOf(obj), Object.getOwnPropertyDescriptors(obj))
+       // way 3 : using Map() constructor
+
         let userGlobal = {
             name : 'Kumar',
             age : 22,
@@ -18,16 +22,16 @@
                 return console.log('copying an object');
             }
         }
-     
+        // way 1
         let UserCopy  = Object.assign(userGlobal);
         console.log(UserCopy);
-
+        // way 2
         let clone = Object.create(Object.getPrototypeOf(userGlobal), Object.getOwnPropertyDescriptors(userGlobal));
         console.log(clone);
 
 
       
-
+        // way 3
         let obj = new Map();
         obj.set('name','ashok');
         obj.set('age',22);

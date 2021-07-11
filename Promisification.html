@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promisification</title>
+</head>
+<body>
+    <h3>Promisification</h3>
+    <script>
+
+var b = Math.floor(Math.random() + .5);
+console.log(b);
+
+function xyz( callback1 , callback2){
+
+// like promise statement 
+  let a = 1 + b;
+  if (a==2){
+      callback1("we are success");
+  }
+  else {
+      callback2("we are failed");
+  }
+}
+xyz( function callBackOne(message) { console.log(message) }   , function callBackTwo(messageTwo) { console.log(messageTwo)}  );
+
+
+// promisification 
+
+   function promisification(myString){
+       return new Promise((resolve,reject) => {
+           console.log('before xyz');
+             xyzNew = (myString) => {
+                 let a = 1 + b ;
+
+                 if(a==2){
+                     resolve(myString);
+                     console.log('entered if')
+                 }
+                 else {
+                     reject("we are failed");
+                 }
+             }
+       })
+   }
+
+   promisification("hello").then((message) => console.log(message)).catch((message) => console.log(message));
+
+
+
+
+    </script>
+</body>
+</html>
