@@ -16,6 +16,8 @@
   // implementing using callback  
   // usage of callbacks - making javascript asynchrounous , needs to do something after a task happens or button clicks....
   // syntax is paasing a function to another functions because functional are said as objects.
+  var b = Math.floor(Math.random() + .5);
+console.log(b);
 function xyz( callback1 , callback2){
 
 // like promise statement 
@@ -47,7 +49,6 @@ function abc() {
 
 abc().then(function(message){console.log(message)}).catch(function (message){ console.log(message)});
 
-var b = Math.floor(Math.random() + .5);
-console.log(b);
+
 
 </script>
